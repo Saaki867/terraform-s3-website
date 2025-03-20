@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "eu-west-3"  # Paris, mais tu peux changer selon ta préférence
+  region = "eu-west-3"  # Paris
 }
 
 terraform {
