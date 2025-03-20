@@ -1,4 +1,4 @@
-# Création du bucket S3
+#  bucket S3
 resource "aws_s3_bucket" "website" {
   bucket = var.bucket_name
 
@@ -8,7 +8,7 @@ resource "aws_s3_bucket" "website" {
   }
 }
 
-# Configuration du bucket pour l'hébergement de site web statique
+
 resource "aws_s3_bucket_website_configuration" "website" {
   bucket = aws_s3_bucket.website.id
 
@@ -21,7 +21,7 @@ resource "aws_s3_bucket_website_configuration" "website" {
   }
 }
 
-# Ajoute cette ressource après la création du bucket aws_s3_bucket.website
+
 resource "aws_s3_bucket_public_access_block" "website" {
   bucket = aws_s3_bucket.website.id
 
@@ -31,7 +31,7 @@ resource "aws_s3_bucket_public_access_block" "website" {
   restrict_public_buckets = false
 }
 
-# Politique d'accès au bucket (public read)
+
 resource "aws_s3_bucket_policy" "website" {
   bucket = aws_s3_bucket.website.id
   policy = jsonencode({
@@ -48,7 +48,7 @@ resource "aws_s3_bucket_policy" "website" {
   })
 }
 
-# Configuration CORS
+
 resource "aws_s3_bucket_cors_configuration" "website" {
   bucket = aws_s3_bucket.website.id
 
@@ -61,7 +61,7 @@ resource "aws_s3_bucket_cors_configuration" "website" {
   }
 }
 
-# Téléchargement des fichiers HTML
+
 resource "aws_s3_object" "index" {
   bucket       = aws_s3_bucket.website.id
   key          = "index.html"
