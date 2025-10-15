@@ -41,4 +41,3 @@ I learned a lot from this project:
 - AWS permissions and error handling
 - Best practices for static hosting
 
-Translated with DeepL.com (free version)
